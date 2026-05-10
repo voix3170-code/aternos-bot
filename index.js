@@ -1,8 +1,8 @@
 const mineflayer = require('mineflayer');
 
 const botConfig = {
-    host: 'mtatr.aternos.me',
-    port: 25565,
+    host: 'osmbaba.aternos.me',
+    port: 12827,
     version: '1.21.11',
     checkTimeoutInterval: 60000
 };
@@ -46,7 +46,7 @@ function createBot(name) {
             const phrase = phrases[Math.floor(Math.random() * phrases.length)];
             bot.chat(phrase);
             console.log(`[CHAT] ${name}: ${phrase}`);
-        }, 5000 + Math.random() * 10000);
+        }, 1000 + Math.random() * 2000);
     });
 
     bot.on('error', (err) => console.log(`${name} Hatası:`, err.message));
