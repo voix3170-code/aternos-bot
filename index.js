@@ -3,7 +3,7 @@ const mineflayer = require('mineflayer');
 const botConfig = {
     host: 'osmbaba.aternos.me',
     port: 12827,
-    version: '1.21.11',
+    version: '1.21.1',
     checkTimeoutInterval: 60000
 };
 
@@ -17,7 +17,7 @@ function createBot(name) {
     });
 
     bot.on('spawn', () => {
-        console.log(`${name} sunucuya katıldı!`);
+        console.log(`${name} sunucuya katildi!`);
         
         setTimeout(() => {
             bot.chat('/register 12345678 12345678');
@@ -25,7 +25,7 @@ function createBot(name) {
                 bot.chat('/login 12345678');
                 setTimeout(() => {
                     bot.chat('Salam');
-                    console.log(`[SYS] ${name} kimlik doğrulama ve ilk mesaj gönderildi.`);
+                    console.log(`[SYS] ${name} kimlik dogrulama ve ilk mesaj gonderildi.`);
                 }, 1500);
             }, 1500);
         }, 3000);
@@ -49,18 +49,18 @@ function createBot(name) {
         }, 1000 + Math.random() * 2000);
     });
 
-    bot.on('error', (err) => console.log(`${name} Hatası:`, err.message));
+    bot.on('error', (err) => console.log(`${name} Hatasi:`, err.message));
     
     bot.on('end', () => {
         const reconnectDelay = Math.floor(Math.random() * 60000) + 60000;
-        console.log(`${name} ayrıldı, ${reconnectDelay/1000} saniye sonra tekrar denenecek... Yeni isim alınıyor...`);
+        console.log(`${name} ayrildi, ${reconnectDelay/1000} saniye sonra tekrar denenecek...`);
         setTimeout(() => createBot(generateRandomName()), reconnectDelay);
     });
 }
 
 function generateRandomName() {
-    const firstNames = ['Ali', 'Veli', 'Hasan', 'Hüseyin', 'Mehmet', 'Ahmet', 'Fatma', 'Ayşe', 'Zeynep', 'Elif', 'Emre', 'Can', 'Deniz', 'Mert', 'Yusuf', 'Eda', 'Selin', 'Berk', 'Oğuz', 'Kaan'];
-    const lastNames = ['Yılmaz', 'Kaya', 'Demir', 'Şahin', 'Çelik', 'Özdemir', 'Arslan', 'Doğan', 'Korkmaz', 'Erdoğan', 'Aydın', 'Öztürk', 'Yıldırım', 'Acar', 'Aksoy'];
+    const firstNames = ['Ali', 'Veli', 'Hasan', 'Huseyin', 'Mehmet', 'Ahmet', 'Fatma', 'Ayse', 'Zeynep', 'Elif', 'Emre', 'Can', 'Deniz', 'Mert', 'Yusuf', 'Eda', 'Selin', 'Berk', 'Oguz', 'Kaan'];
+    const lastNames = ['Yilmaz', 'Kaya', 'Demir', 'Sahin', 'Celik', 'Ozdemir', 'Arslan', 'Dogan', 'Korkmaz', 'Erdogan', 'Aydin', 'Ozturk', 'Yildirim', 'Acar', 'Aksoy'];
     const numbers = Math.floor(Math.random() * 1000);
     const useUnderscore = Math.random() > 0.5;
     const prefix = Math.random() > 0.7 ? ['x', 'i', 'Pro', 'The', 'Mr', 'Mrs'][Math.floor(Math.random() * 6)] : '';
@@ -73,11 +73,11 @@ function generateRandomName() {
     return name;
 }
 
-console.log(`${BOT_COUNT} bot başlatma işlemi başlıyor...`);
+console.log(`${BOT_COUNT} bot baslatma islemi basliyor...`);
 for (let i = 1; i <= BOT_COUNT; i++) {
     setTimeout(() => {
         const botName = generateRandomName();
-        console.log(`${botName} başlatılıyor...`);
+        console.log(`${botName} baslatiliyor...`);
         createBot(botName);
     }, i * JOIN_DELAY);
 }
